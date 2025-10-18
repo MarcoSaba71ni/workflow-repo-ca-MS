@@ -1,8 +1,8 @@
-import { getUsername , clearStorage , saveUser } from "./storage.js";
-import {describe, it ,expect, beforeEach, afterEach} from "vitest";
+import { getUsername, clearStorage, saveUser } from "./storage.js";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
 
-describe("getUsername", ()=> {
-    beforeEach(() => {
+describe("getUsername", () => {
+  beforeEach(() => {
     clearStorage();
   });
 
@@ -10,19 +10,18 @@ describe("getUsername", ()=> {
     clearStorage();
   });
 
-    it("returns the name of the user object inside localStorage", ()=> {
-        //arrange
-        const mockUser = { name: "Marco Sabatini", email: "marco@example.com" };
-        // action 
-        saveUser(mockUser);
-        const userName = getUsername();
-        // expect
-        expect(userName).toBe("Marco Sabatini")
-    });
-    it("returns null if there is no user saved in our localStorage", ()=> {
+  it("returns the name of the user object inside localStorage", () => {
+    //arrange
+    const mockUser = { name: "Marco Sabatini", email: "marco@example.com" };
+    // action
+    saveUser(mockUser);
+    const userName = getUsername();
+    // expect
+    expect(userName).toBe("Marco Sabatini");
+  });
+  it("returns null if there is no user saved in our localStorage", () => {
+    const userName = getUsername();
 
-        const userName = getUsername();
-
-        expect(userName).toBeNull();
-    })
-})
+    expect(userName).toBeNull();
+  });
+});
