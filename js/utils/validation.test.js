@@ -63,7 +63,7 @@ describe("validateLoginForm", () => {
       password: "short",
       expected: {
         isValid: false,
-        erros: {
+        errors: {
           email: "Please enter a valid Noroff email address",
           password: "Password must be at least 8 characters",
         },
@@ -84,7 +84,7 @@ describe("validateLoginForm", () => {
 
   testCases.forEach(({ email, password, expected }) => {
     it(`validates correctly for email "${email}" and password "${password}"`, () => {
-      const result = validateLoginForm(email);
+      const result = validateLoginForm(email, password);
       expect(result).toEqual(expected);
     });
   });
